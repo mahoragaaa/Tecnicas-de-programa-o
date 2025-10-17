@@ -1,0 +1,16 @@
+package br.edu.fatecpgg.tecprogheranca.view;
+import br.edu.fatecpgg.tecprogheranca.model.Veiculo;
+import br.edu.fatecpgg.tecprogheranca.model.Carro;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Veiculo veiculo = new Veiculo("fiat","moby",50,2024,false);
+		
+		Carro carro = new Carro("Renault","Logan",54,2020,false,true,400);
+		
+		System.out.println(veiculo.abastecer(52));
+		System.out.println(carro.abastecer(25));
+		System.out.println(carro.estacionar());
+	}
+}
