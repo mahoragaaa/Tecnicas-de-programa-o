@@ -1,22 +1,76 @@
 package br.edu.fatecpgg.tecprogheranca.view;
-import br.edu.fatecpgg.tecprogheranca.model.Veiculo;
-import br.edu.fatecpgg.tecprogheranca.model.Carro;
-import br.edu.fatecpgg.tecprogheranca.model.Gerente;
+import br.edu.fatecpgg.tecprogheranca.model.*;
+import java.util.Scanner;
 
 public class Main {
 	
-	public static void main(String[] args) {
-		/*Veiculo veiculo = new Veiculo("fiat","moby",50,2024,false);
+		private static String usuario;
+		private static int senha;
+
+		public static void main(String[] args) {
+			int a = 2; 
+			Scanner scan = new Scanner(System.in);
+			
+			do {
+				System.out.println("qual excercio vocẽ quer ver?");
+				int resposta = scan.nextInt();
+				switch(resposta) {
+				case 1 :
+					calculadora();
+				break;
+				
+				case 2 :
+					pagar();
+				break;
+				
+				case 3 :
+					logar();
+				break;
+				
+				default :
+					System.out.println("esse execercio não existe");
+				}
+			} while( a == 2);
+	
+			
+			
+		}
 		
-		Carro carro = new Carro("Renault","Logan",54,2020,false,true,400);
+		public  static java.lang.Integer pagar() {
+			Pagamentocartao conta = new Pagamentocartao(100.00,50.00);
+			Pagamentodinheiro contadin = new Pagamentodinheiro(100.00,50.00);
+			System.out.println(conta.calcularpagamento());
+			System.out.println(contadin.calcularpagamento());
+			return null;
+		}
 		
-		System.out.println(veiculo.abastecer(52));
-		System.out.println(carro.abastecer(25));
-		System.out.println(carro.estacionar());*/
+		public static java.lang.Integer logar() {
+			Scanner scan = new Scanner(System.in);
+			Sistemdeseguranca jorge = new Sistemdeseguranca("admin",1234); 
+			
+			System.out.println("insira seu nome de usuario: ");
+			String usuario = scan.nextLine();
+			System.out.println("insira sua senha para logar: ");
+			int senha = scan.nextInt();
+
+			if(jorge.Login(usuario,senha) == -1) {
+				System.out.println(usuario + senha);
+				logar();
+				return null;
+			}else {
+			System.out.println(jorge.Login(usuario,senha));
+			return null;
+			}
+		}
 		
-		Gerente ger = new Gerente("Ale",10);
-		
-		System.out.println(ger.abrircaixa());
-		System.out.println(ger.baterponto());
-	}
+		public static java.lang.Integer calculadora() {
+			
+			Calculadora result = new Calculadora();
+			System.out.println(result.soma(1,5));
+			System.out.println(result.subtracao(1,5));
+			System.out.println(result.divisao(10,5));
+			System.out.println(result.multiplicacao(2,5));
+			return null;
+			
+		}
 }
