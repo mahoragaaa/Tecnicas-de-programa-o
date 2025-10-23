@@ -16,7 +16,7 @@ public class Sistemdeseguranca implements IAutenticavel{
 	
 	
 	public int Login(String usuario, int senha) {
-		if(this.senha == senha && this.usuario == usuario) {
+		if(this.senha == senha) {
 			login = 1;
 			System.out.println("vocẽ está logado");
 			return 1;
